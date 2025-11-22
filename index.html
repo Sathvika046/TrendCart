@@ -541,7 +541,7 @@ img.fade-in {
   </style>
 </head>
 <body>
-  <div class="heading1">Free delivery on order over ₹199</div>
+  <div class="heading1">Free delivery on order over $199</div>
   <nav class="links">
     <div class="navlogo">
       <img src="https://res.cloudinary.com/duracoq4p/image/upload/v1763371982/logo_zvpmml.png" alt="logo">
@@ -692,7 +692,7 @@ img.fade-in {
   </footer>
 
   <script>
-// ---------- PRODUCTS (unchanged) ----------
+// ---------- PRODUCTS ----------
 const products = [
   { name: "Phone", category: "electronics", price: 500, rating: 4.5, image: "images/phone.jpg" },
   { name: "Laptop", category: "electronics", price: 1200, rating: 4.7, image: "images/laptop.webp" },
@@ -713,16 +713,11 @@ const products = [
   { name: "Anarkali", category: "clothing", price: 290, rating: 4.3, image: "images/anarkali.webp" },
   { name: "Saree", category: "clothing", price: 159, rating: 4.8, image: "images/saree1.jpeg" },
 ];
-
-
 let cart = JSON.parse(localStorage.getItem('cart_v1')) || [];
-
 let users = JSON.parse(localStorage.getItem('users_v1')) || []; 
 let session = JSON.parse(localStorage.getItem('session_v1')) || null; 
-
 function saveUsers(){ localStorage.setItem('users_v1', JSON.stringify(users)); }
 function saveSession(){ localStorage.setItem('session_v1', JSON.stringify(session)); }
-
 function updateCartSummary(){
   const totalItems = cart.reduce((s,it)=>s + (it.quantity||0),0);
   const totalPrice = cart.reduce((s,it)=>s + it.price*(it.quantity||0),0);
@@ -730,8 +725,13 @@ function updateCartSummary(){
   document.getElementById("cartTotal").textContent = totalPrice>0 ? `Total: $${totalPrice.toFixed(2)}` : "";
 }
 function saveCart(){ localStorage.setItem('cart_v1', JSON.stringify(cart)); updateCartSummary(); }
-
 function toggleCart(name){
+  // Check if user is logged in before allowing cart actions
+  if(!session || !session.email){
+    alert("Login to add items.");
+    openLoginModal();
+    return;
+  }
   const idx = cart.findIndex(i=>i.name===name);
   if(idx===-1){
     const product = products.find(p=>p.name===name);
@@ -744,8 +744,6 @@ function toggleCart(name){
   renderProducts(getCurrentFilteredProducts());
   renderCartItems();
 }
-
-
 function isInCart(productName){ return cart.some(i=>i.name===productName); }
 
 function renderProducts(list){
@@ -772,7 +770,6 @@ function renderProducts(list){
     container.appendChild(card);
   });
 }
-
 
 function getCurrentFilteredProducts(){
   const query = document.getElementById("searchInput").value.toLowerCase();
@@ -851,7 +848,7 @@ function removeFromCart(name){
 function buyNow(){
   if(cart.length===0){ alert("Your cart is empty!"); return; }
   const total = cart.reduce((s,i)=>s + i.price*(i.quantity||0),0);
-  alert(`Total amount: $${total.toFixed(2)}\nReady for payment.`);
+  alert(`Total amount: ${total.toFixed(2)}\nReady for payment.`);
   const buyButton = document.querySelector(".cart-drawer .btn.primary");
   if(buyButton){ buyButton.textContent="Order Placed"; buyButton.disabled=true; buyButton.classList.remove('primary'); buyButton.classList.add('added'); }
   cart = [];
@@ -897,7 +894,7 @@ function genOtp(){ return Math.floor(100000 + Math.random()*900000).toString(); 
 
 // Simulate sending OTP - popup OTP on console.log only
 function sendOtpToEmail(email, otp){
-    alert("Check console for simulated OTP (in real app, it would be emailed).");
+  alert("Check console for simulated OTP (in real app, it would be emailed).");
   console.log(`Simulated: OTP for ${email} => ${otp}`);
 }
 
@@ -975,7 +972,7 @@ function applyLoggedInUI(){
 
   if(session && session.name){
     signedNameEl.style.display = 'inline-block';
-    signedNameEl.textContent = session.name.split(' ')[0]; // first name abbreviated
+    signedNameEl.textContent = session.name.split(' ')[0]; 
     signInEl.style.display = 'none';
     registerEl.style.display = 'none';
     logoutContainer.style.display = 'block';
