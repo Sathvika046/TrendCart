@@ -38,14 +38,8 @@ TrendCart/
 **Option 1: Direct File Open**
 - Simply open `index.html` in your browser.
 
-**Option 2: Python HTTP Server** (Recommended)
-```bash
-cd /workspaces/TrendCart
-python3 -m http.server 8000
-# Visit http://localhost:8000 in your browser
-```
-
-**Option 3: VS Code Live Server**
+``
+**Option 2: VS Code Live Server**
 - Install the "Live Server" extension.
 - Right-click `index.html` and select "Open with Live Server".
 
