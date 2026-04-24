@@ -6,6 +6,7 @@
   <title>Product Filter Page</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="logo.png" type="image/logo" width="100" height="10">
   <style>
   
 body {
@@ -566,7 +567,7 @@ img.fade-in {
       <div class="favs"><button class="icons"><i class="fa-regular fa-heart"></i></button></div>
       <div class="notify"><button class="notify-icon"><i class="fa-regular fa-bell"></i></button></div>
       <div class="signup">
-        <!-- user button shows icon and will display small name when logged in -->
+        <!-- user button  -->
         <button id="signBtn" class="sign-icon" onclick="openAuthMenu(event)">
           <i class="fa-regular fa-circle-user"></i>
           <span id="signedName" class="signed-name" style="display:none;"></span>
@@ -601,7 +602,7 @@ img.fade-in {
   <section class="hero-section">
     <div class="hero-container">
       <div class="hero-image">
-        <img src="images/jessica-weiller-So4eFi-d1nc-unsplash.jpg" alt="Hero image">
+          <img src="https://res.cloudinary.com/duracoq4p/image/upload/v1773406657/jessica-weiller-So4eFi-d1nc-unsplash_e6ugjk.jpg" alt="Hero image">
       </div>
       <div class="hero-content">
         <h1>Trending</h1>
@@ -694,24 +695,24 @@ img.fade-in {
   <script>
 // ---------- PRODUCTS ----------
 const products = [
-  { name: "Phone", category: "electronics", price: 500, rating: 4.5, image: "images/phone.jpg" },
-  { name: "Laptop", category: "electronics", price: 1200, rating: 4.7, image: "images/laptop.webp" },
-  { name: "SmartWatch", category: "electronics", price: 250, rating: 4.6, image: "images/Smartwatch.jpg" },
-  { name: "Bluetooth Speaker", category: "electronics", price: 300, rating: 4.2, image: "images/bluetooth Speaker.webp" },
-  { name: "Jeans", category: "clothing", price: 40, rating: 4.2, image: "images/jeans.jpg" },
-  { name: "T-Shirt", category: "clothing", price: 25, rating: 4.0, image: "images/t-shirt.jpg" },
-  { name: "Jacket", category: "clothing", price: 60, rating: 4.4, image: "images/jackect.webp" },
-  { name: "Dress", category: "clothing", price: 90, rating: 4.3, image: "images/dress.jpeg" },
-  { name: "King Series", category: "books", price: 15, rating: 4.8, image: "images/novel.jpg" },
-  { name: "Twisted Series", category: "books", price: 5, rating: 4.1, image: "images/novel2.jpg" },
-  { name: "Perfume", category: "Accessories", price: 250, rating: 4.6, image: "images/jessica-weiller-So4eFi-d1nc-unsplash.jpg" },
-  { name: "Chain", category: "Accessories", price: 300, rating: 4.2, image: "images/chain.webp" },
-  { name: "Suit", category: "Accessories", price: 430, rating: 4.2, image: "images/suit.jpeg" },
-  { name: "Bracelet", category: "Accessories", price: 190, rating: 4.3, image: "images/bracelet.jpg" },
-  { name: "Hairclip", category: "Accessories", price: 150, rating: 4.8, image: "images/hairclip.webp" },
-  { name: "Sarees", category: "clothing", price: 340, rating: 4.2, image: "images/saree.jpeg" },
-  { name: "Anarkali", category: "clothing", price: 290, rating: 4.3, image: "images/anarkali.webp" },
-  { name: "Saree", category: "clothing", price: 159, rating: 4.8, image: "images/saree1.jpeg" },
+  { name: "Phone", category: "electronics", price: 500, rating: 4.5, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406657/phone_e0cmlh.jpg" },
+  { name: "Laptop", category: "electronics", price: 1200, rating: 4.7, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406655/laptop_zzkocj.webp" },
+  { name: "SmartWatch", category: "electronics", price: 250, rating: 4.6, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406657/Smartwatch_o7jpgi.jpg" },
+  { name: "Bluetooth Speaker", category: "electronics", price: 300, rating: 4.2, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406653/bluetooth_Speaker_qhzhif.webp" },
+  { name: "Jeans", category: "clothing", price: 40, rating: 4.2, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406655/jeans_bmeope.jpg" },
+  { name: "T-Shirt", category: "clothing", price: 25, rating: 4.0, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406657/t-shirt_lfagb9.jpg" },
+  { name: "Jacket", category: "clothing", price: 60, rating: 4.4, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406656/jackect_hhszv4.webp" },
+  { name: "Dress", category: "clothing", price: 90, rating: 4.3, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406653/dress_j1ykx6.jpg" },
+  { name: "King Series", category: "books", price: 15, rating: 4.8, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406656/novel_i6lnyr.jpg" },
+  { name: "Twisted Series", category: "books", price: 5, rating: 4.1, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406656/novel2_zdyxzx.jpg" },
+  { name: "Perfume", category: "Accessories", price: 250, rating: 4.6, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406657/jessica-weiller-So4eFi-d1nc-unsplash_e6ugjk.jpg" },
+  { name: "Chain", category: "Accessories", price: 300, rating: 4.2, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406654/chain_me74zp.webp" },
+  { name: "Suit", category: "Accessories", price: 430, rating: 4.2, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406657/suit_pqz7jb.jpg" },
+  { name: "Bracelet", category: "Accessories", price: 190, rating: 4.3, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406654/bracelet_r5kiia.jpg" },
+  { name: "Hairclip", category: "Accessories", price: 150, rating: 4.8, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406654/hairclip_rz2yci.webp" },
+  { name: "Sarees", category: "clothing", price: 340, rating: 4.2, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406656/saree_jrazon.jpg" },
+  { name: "Anarkali", category: "clothing", price: 290, rating: 4.3, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406654/anarkali_wtky4b.webp" },
+  { name: "Saree", category: "clothing", price: 159, rating: 4.8, image: "https://res.cloudinary.com/duracoq4p/image/upload/v1773406658/saree1_xzrj2y.webp" },
 ];
 
 
